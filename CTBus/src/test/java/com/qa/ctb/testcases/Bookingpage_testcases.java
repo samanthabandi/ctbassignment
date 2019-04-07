@@ -11,11 +11,13 @@ import org.testng.annotations.Test;
 
 import com.qa.ctb.Base.Base;
 import com.qa.ctb.objectpages.Bookingpage;
+import com.qa.ctb.objectpages.Selecttrippage;
 
 public class Bookingpage_testcases extends Base {
 
 	Bookingpage bp;
 	String date;
+	Selecttrippage strip ;
 	
 
 	public Bookingpage_testcases() throws IOException {
@@ -30,7 +32,7 @@ public class Bookingpage_testcases extends Base {
 	}
 
 	@Test
-	public void search() throws IOException, ParseException {
+	public  void search() throws IOException, ParseException {
 		try {
 
 			System.out.println(driver.getTitle());
@@ -40,12 +42,15 @@ public class Bookingpage_testcases extends Base {
 			bp.arrivalcityname();
 			bp.passengercount(2);
 			bp.datepicker("8/05/2019");
-			//bp.searchmethod();
+			bp.searchmethod();
+			strip =new Selecttrippage(driver);
+			strip.operatordata();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+		
+			}
  
 	
 }

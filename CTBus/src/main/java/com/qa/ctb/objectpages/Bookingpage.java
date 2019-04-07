@@ -32,7 +32,7 @@ public class Bookingpage extends Base {
 	@FindBy(xpath = "//input[contains(@placeholder,'Enter Departure City')]")
 	WebElement departurecity;
 
-	@FindBy(xpath = "//input[contains(@placeholder,'Enter Arrival City')]")
+	@FindBy(xpath = "//input[contains(@class,'form-control to_field onewayTo ui-autocomplete-input')]")
 	WebElement arrivalcity;
 
 	@FindBy(xpath = "//div[contains(@class,'dd-select')]")
@@ -53,12 +53,10 @@ public class Bookingpage extends Base {
 	@FindBy(xpath = "//a[contains(@class,'ui-state-default')]")
 	List<WebElement> datesdiv;
 	
-	@FindBy(xpath = "//button[text()='Search']")
-	WebElement tooltip;
+	@FindBy(xpath="//button[contains(@type,'submit')]")
+	WebElement searchbutton;
 	
-	@FindBy(xpath="//*[@id=\'expressBus\']/div[1]/div[6]/div/button]")
-	private WebElement search;
-
+	
 	public Bookingpage(WebDriver driver) throws IOException {
 
 		this.driver = driver;
@@ -162,13 +160,25 @@ public class Bookingpage extends Base {
 			int d = Integer.parseInt(s);
 			if (daytoselect == d) {
 				n.click();
+				break;
 			}
 		}
 		
 	}
 
 	// Search button access
-	
+	public void searchmethod()
+	{   System.out.println("Entered in to search method");
+		Actions action = new Actions(driver);
+		action.moveToElement(searchbutton);
+		action.doubleClick().build().perform();
+		arrivalcityname();
+		arrivalcity.sendKeys(Keys.ARROW_DOWN);
+		arrivalcity.sendKeys(Keys.TAB);
+		datepicker.sendKeys(Keys.TAB);
+		action.moveToElement(searchbutton);
+		action.doubleClick().build().perform();
+	}
 
 }
 	
