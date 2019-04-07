@@ -27,14 +27,8 @@ public class Bookingpage extends Base {
 	WebDriver driver;
 	WebDriverWait wait;
 	
-	// Constructor
-		public Bookingpage(WebDriver driver) throws IOException {
-
-			this.driver = driver;
-			PageFactory.initElements(driver, this);
-			wait = new WebDriverWait(driver, 20);
-		}
-
+	
+		
 	@FindBy(xpath = "//input[contains(@placeholder,'Enter Departure City')]")
 	WebElement departurecity;
 
@@ -65,6 +59,12 @@ public class Bookingpage extends Base {
 	@FindBy(xpath="//*[@id=\'expressBus\']/div[1]/div[6]/div/button]")
 	private WebElement search;
 
+	public Bookingpage(WebDriver driver) throws IOException {
+
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 20);
+	}
 
 	
 	// Selecting departure city
@@ -169,7 +169,7 @@ public class Bookingpage extends Base {
 
 	// Search button access
 	
-	
+
 }
 	
 		

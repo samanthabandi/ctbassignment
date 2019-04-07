@@ -16,6 +16,7 @@ public class Bookingpage_testcases extends Base {
 
 	Bookingpage bp;
 	String date;
+	
 
 	public Bookingpage_testcases() throws IOException {
 		super();
@@ -39,26 +40,12 @@ public class Bookingpage_testcases extends Base {
 			bp.arrivalcityname();
 			bp.passengercount(2);
 			bp.datepicker("8/05/2019");
-			searchmethod();
+			//bp.searchmethod();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
-	public void searchmethod() throws InterruptedException {
-		
-		System.out.println("Entered in to search method");
-		WebElement e = driver.findElement(By.xpath("//*[@id=\'expressBus\']/div[1]/div[6]/div/button"));
-		if (e.isDisplayed()) {
-			Thread.sleep(2000);
-			Actions action = new Actions(driver);
-			action.moveToElement(e);
-			WebElement afterhover = driver.findElement(By.xpath("//*[ends-with(@class,'hvr-grow-shadow')]"));
-           if(afterhover.isDisplayed())
-        	   afterhover.click();
-           else
-        	   System.out.println("not found");
-		}
-	}
+ 
+	
 }
