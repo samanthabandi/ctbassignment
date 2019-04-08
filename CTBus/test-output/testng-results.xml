@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-04-07T16:41:57Z" name="Default suite" finished-at="2019-04-07T16:43:01Z" duration-ms="63372">
+  <suite name="Command line suite" duration-ms="17155" started-at="2019-04-08T09:42:42Z" finished-at="2019-04-08T09:42:59Z">
     <groups>
     </groups>
-    <test started-at="2019-04-07T16:41:57Z" name="Default test" finished-at="2019-04-07T16:43:01Z" duration-ms="63372">
+    <test name="Command line test" duration-ms="17155" started-at="2019-04-08T09:42:42Z" finished-at="2019-04-08T09:42:59Z">
       <class name="com.qa.ctb.testcases.Bookingpage_testcases">
-        <test-method is-config="true" signature="init()[pri:0, instance:com.qa.ctb.testcases.Bookingpage_testcases@192c3f1e]" started-at="2019-04-07T16:41:57Z" name="init" finished-at="2019-04-07T16:42:12Z" duration-ms="15038" status="PASS">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.qa.ctb.testcases.Bookingpage_testcases@567d299b]" name="init" is-config="true" duration-ms="7188" started-at="2019-04-08T09:42:42Z" finished-at="2019-04-08T09:42:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method signature="search()[pri:0, instance:com.qa.ctb.testcases.Bookingpage_testcases@192c3f1e]" started-at="2019-04-07T16:42:12Z" name="search" finished-at="2019-04-07T16:43:01Z" duration-ms="48296" status="PASS">
+        <test-method status="PASS" signature="search()[pri:0, instance:com.qa.ctb.testcases.Bookingpage_testcases@567d299b]" name="search" duration-ms="9941" started-at="2019-04-08T09:42:49Z" finished-at="2019-04-08T09:42:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- search -->
       </class> <!-- com.qa.ctb.testcases.Bookingpage_testcases -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
 </testng-results>
