@@ -26,9 +26,7 @@ public class Bookingpage extends Base {
 
 	WebDriver driver;
 	WebDriverWait wait;
-	
-	
-		
+
 	@FindBy(xpath = "//input[contains(@placeholder,'Enter Departure City')]")
 	WebElement departurecity;
 
@@ -52,11 +50,10 @@ public class Bookingpage extends Base {
 
 	@FindBy(xpath = "//a[contains(@class,'ui-state-default')]")
 	List<WebElement> datesdiv;
-	
-	@FindBy(xpath="//button[contains(@type,'submit')]")
+
+	@FindBy(xpath = "//button[contains(@type,'submit')]")
 	WebElement searchbutton;
-	
-	
+
 	public Bookingpage(WebDriver driver) throws IOException {
 
 		this.driver = driver;
@@ -64,12 +61,11 @@ public class Bookingpage extends Base {
 		wait = new WebDriverWait(driver, 20);
 	}
 
-	
 	// Selecting departure city
 	public void departurecityname() {
 		departurecity.sendKeys("kua");
 		departurecity.sendKeys(Keys.ARROW_DOWN);
-		selectoptionwithtext("Swiss-Garden Hotel");
+		selectoptionwithtext(prop.getProperty("Departurecity"));
 	}
 
 	public void selectoptionwithtext(String s) {
@@ -79,12 +75,12 @@ public class Bookingpage extends Base {
 			wait.until(ExpectedConditions.visibilityOf(autoOptions));
 			List<WebElement> optionsToSelect = autoOptions.findElements(By.tagName("li"));
 			for (WebElement option : optionsToSelect) {
-				System.out.println(option.getText());
+				//System.out.println(option.getText());
 				String text = option.getText();
 				if (text.contains(s)) {
 					System.out.println("Trying to select: " + text);
 					WebElement w = option.findElement(By.tagName("span"));
-					System.out.println(w.getText());
+					//System.out.println(w.getText());
 					w.click();
 					break;
 				}
@@ -101,7 +97,7 @@ public class Bookingpage extends Base {
 
 	public void arrivalcityname() {
 		if (arrivalcity.isEnabled()) {
-			arrivalcity.sendKeys("Kaunter 1 Terminal Bas");
+			arrivalcity.sendKeys(prop.getProperty("Arrivalcity"));
 
 		} else
 			System.out.println("Arrival city is in disabled mode");
@@ -109,20 +105,20 @@ public class Bookingpage extends Base {
 
 	// Selecting passenger count
 
-	public void passengercount(int i) {
+	public void passengercount() {
 
 		passengerselect.click();
 		List<WebElement> li = passengerselect.findElements(By.xpath("//label[contains(@class,'dd-option-text')]"));
 		for (WebElement loop : li) {
 			String count = loop.getText();
-			if (count.matches("2")) {
+			if (count.matches(prop.getProperty("Passengercount"))) {
 				loop.click();
 				break;
 			}
 		}
 
 	}
-
+//selecting date of journey 
 	public void datepicker(String datetoset) throws Exception {
 		// clicking on current date
 		datepicker.click();
@@ -145,13 +141,13 @@ public class Bookingpage extends Base {
 					break;
 				}
 			}
-			
+
 		}
 
 		String day;
 		day = new SimpleDateFormat("dd").format(setdate);
 		int daytoselect = Integer.parseInt(day);
-		System.out.println("day to selectis: " + daytoselect);
+		//System.out.println("day to select is: " + daytoselect);
 		Iterator<WebElement> it = datesdiv.iterator();
 
 		while (it.hasNext()) {
@@ -163,12 +159,12 @@ public class Bookingpage extends Base {
 				break;
 			}
 		}
-		
+
 	}
 
 	// Search button access
-	public void searchmethod()
-	{   System.out.println("Entered in to search method");
+	public void searchmethod() {
+		System.out.println("Entered in to search method");
 		Actions action = new Actions(driver);
 		action.moveToElement(searchbutton);
 		action.doubleClick().build().perform();
@@ -181,6 +177,3 @@ public class Bookingpage extends Base {
 	}
 
 }
-	
-		
-		

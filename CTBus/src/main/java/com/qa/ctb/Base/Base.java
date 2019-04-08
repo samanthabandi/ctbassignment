@@ -19,21 +19,23 @@ public   WebDriver driver ;
 
 	public Base() throws IOException {
 		prop = new Properties();
+		String path = System.getProperty("user.dir");
 		FileInputStream fp = new FileInputStream(
-				"D:/pnpws/CTBus/src/main/java/com/qa/ctb/utils/config.properties");
+				path + "/src/main/java/com/qa/ctb/utils/config.properties");
 		prop.load(fp);
 	}
 
 	public void browserinit() throws InterruptedException {
 		String browsername = prop.getProperty("browser");
 		if (browsername.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "D:/pnpws/CTBus/src/test/resources/Drivers/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 			driver = new ChromeDriver();
 		} 
-		else if(browsername.equalsIgnoreCase("firefox") ){
-			System.setProperty("webdriver.gecko.driver", "C:/DRIVERS/geckdriver.exe");
+		//else if(browsername.equalsIgnoreCase("firefox") ){
+			//System.setProperty("webdriver.gecko.driver", "C:/DRIVERS/geckdriver.exe");
 			
-		}else
+		//}
+		else
 		{
 			System.out.println("browser not specified");
 		}
